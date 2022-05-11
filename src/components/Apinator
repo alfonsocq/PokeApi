@@ -1,0 +1,19 @@
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+
+const Apinator = props => {
+    //Nota que el segundo argumento es un array vacío. 
+    const [responseData, setResponseData] = useState(null);
+    useEffect(()=>{
+        axios.get('https://pokeapi.co/api/v2/pokemon')
+            .then(response=>{setResponseData(response.data)})
+        }, []); 
+
+    return(
+            <div>
+            {responseData}
+            </div>
+        
+    )
+}
+export default Apinator;
